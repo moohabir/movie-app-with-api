@@ -1,13 +1,13 @@
 import App from "./App";
-export default function MovieList({ movie }) {
+export default function MovieList({ Poster, Title, Year }) {
   return (
     <main>
       <div>
-        <img src={movie.Poster} alt={movie.name} />
+        <img src={Poster} alt={Title} />
       </div>
       <div>
-        <h4>{movie.Title}</h4>
-        <p>{movie.Year}</p>
+        <h4>{Title}</h4>
+        <p>{Year}</p>
       </div>
     </main>
   );
