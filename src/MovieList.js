@@ -7,7 +7,7 @@ export default function MovieList({ Poster, Title, Year }) {
       </div>
       <div>
         <h4>{Title}</h4>
-        <p>{Year}</p>
+        <p>Year: {Year}</p>
       </div>
     </main>
   );
