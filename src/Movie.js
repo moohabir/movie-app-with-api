@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import MovieList from "./MovieList";
 import "./App";
+import Search from "./Search";
 
 export default function Movie() {
+  const [searchValue, setSearchValue] = useState("");
   const [movies, setMovies] = useState([
     {
       Title: "Avengers: Infinity War",
@@ -22,17 +24,21 @@ export default function Movie() {
     }
   ]);
 
-  const Getapi = async () => {
-    const url = "http://www.omdbapi.com/?s=war&apikey=c3eb04e2";
-    const response = await fetch(url);
-    const responseJson = await response.Json();
-    setMovies(responseJson.Search);
-  };
-  // Getapi();
+  useEffect(() => {
+    async function Getapi(searchValue) {
+      const response = await fetch(
+        `"http://www.omdbapi.com/?s=${searchValue}&apikey=c3eb04e2"`
+      );
+      const responseJson = await response.json();
+      setMovies(responseJson.Search);
+    }
+    Getapi(searchValue);
+  }, [searchValue]);
 
   return (
     <div>
       <div>
+        <Search searchValue={searchValue} setSearchValue={setSearchValue} />
         {movies.map((movie) => {
           return (
             <MovieList
