@@ -1,7 +1,14 @@
-export default function MovieList() {
+import App from "./App";
+export default function MovieList({ movie }) {
   return (
-    <div>
-      <h1>MovieList Component</h1>
-    </div>
+    <main>
+      <div>
+        <img src={movie.Poster} alt={movie.name} />
+      </div>
+      <div>
+        <h4>{movie.Title}</h4>
+        <p>{movie.Year}</p>
+      </div>
+    </main>
   );
 }
