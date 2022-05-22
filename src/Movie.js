@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import MovieList from "./MovieList";
-import App from "./App";
+import "./App";
 
 export default function Movie() {
   const [movies, setMovies] = useState([
@@ -21,6 +21,14 @@ export default function Movie() {
         "https://m.media-amazon.com/images/M/MV5BMjQ0MTgyNjAxMV5BMl5BanBnXkFtZTgwNjUzMDkyODE@._V1_SX300.jpg"
     }
   ]);
+
+  const Getapi = async () => {
+    const url = "http://www.omdbapi.com/?s=war&apikey=c3eb04e2";
+    const response = await fetch(url);
+    const responseJson = await response.Json();
+    setMovies(responseJson.Search);
+  };
+  // Getapi();
 
   return (
     <div>

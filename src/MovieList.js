@@ -1,4 +1,4 @@
-import App from "./App";
+import "./App";
 export default function MovieList({ Poster, Title, Year }) {
   return (
     <main>
@@ -6,7 +6,7 @@ export default function MovieList({ Poster, Title, Year }) {
         <img src={Poster} alt={Title} />
       </div>
       <div>
-        <h4>{Title}</h4>
+        <h4>Name: {Title}</h4>
         <p>Year: {Year}</p>
       </div>
     </main>
