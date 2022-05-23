@@ -1,4 +1,3 @@
-import "./App";
 export default function MovieList({ Poster, Title, Year }) {
   return (
     <main>

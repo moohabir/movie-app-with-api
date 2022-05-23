@@ -7,9 +7,7 @@ export default function Search({ searchValue, setSearchValue }) {
         value={searchValue}
         onChange={(event) => setSearchValue(event.target.value)}
       />
-      <button onClick={() => setSearchValue(searchValue.target.value)}>
-        Search Movie
-      </button>
+      <button onClick={() => setSearchValue(searchValue)}>Search Movie</button>
     </form>
   );
 }
