@@ -8,8 +8,8 @@ export default function App() {
   const [searchValue, setSearchValue] = useState("");
   const [movies, setMovies] = useState([]);
 
-  const Getapidata = async () => {
-    const url = "https://www.omdbapi.com/?s=war&apikey=c3eb04e2";
+  const Getapidata = async (searchValue) => {
+    const url = `https://www.omdbapi.com/?s=${searchValue}&apikey=c3eb04e2`;
     const response = await fetch(url);
     const responseJson = await response.json();
     setMovies(responseJson.Search);
@@ -18,6 +18,7 @@ export default function App() {
   useEffect(() => {
     Getapidata();
   }, []);
+
   return (
     <div className="App">
       <Search searchValue={searchValue} setSearchValue={setSearchValue} />
